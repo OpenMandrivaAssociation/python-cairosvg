@@ -1,7 +1,7 @@
 %global pypi_name cairosvg
 %global pypi_oname CairoSVG
 
-%define python3 1
+%define python3 0
 
 Name:           python-%{pypi_name}
 Version:        1.0.1
