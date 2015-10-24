@@ -1,7 +1,7 @@
 %global pypi_name cairosvg
 %global pypi_oname CairoSVG
 
-%define python3 1
+%define python2 1
 
 Name:           python-%{pypi_name}
 Version:        1.0.1
@@ -16,6 +16,8 @@ BuildRequires:  pkgconfig(python)
 BuildRequires:  python-setuptools
 Requires:       %{pypi_name}
 
+%rename python3-%{pypi_name}
+
 %description
 A Simple SVG Converter for Cairo
 
@@ -26,17 +28,17 @@ Group:          Development/Python
 %description -n %{pypi_name}
 A Simple SVG Converter for Cairo
 
-%if %python3
-%package -n python3-%{pypi_name}
+%if %python2
+%package -n python2-%{pypi_name}
 Summary:        A Simple SVG Converter for Cairo
 Group:          Development/Python
 
 Requires:       %{pypi_name}
 
-BuildRequires:  pkgconfig(python3)
-BuildRequires:  python3-setuptools
+BuildRequires:  pkgconfig(python2)
+BuildRequires:  python2-setuptools
 
-%description -n python3-%{pypi_name}
+%description -n python2-%{pypi_name}
 A Simple SVG Converter for Cairo
 %endif
 
@@ -45,23 +47,23 @@ A Simple SVG Converter for Cairo
 
 %apply_patches
 
-%if %python3
-cp -a . %{py3dir}
+%if %python2
+cp -a . %{py2dir}
 %endif
 
 %build
 %{__python} setup.py build
 
-%if %python3
-pushd %{py3dir}
-%{__python3} setup.py build
+%if %python2
+pushd %{py2dir}
+%{__python2} setup.py build
 popd
 %endif
 
 %install
-%if %python3
-pushd %{py3dir}
-%{__python3} setup.py install --skip-build --root %{buildroot}
+%if %python2
+pushd %{py2dir}
+%{__python2} setup.py install --skip-build --root %{buildroot}
 popd
 %endif
 
@@ -74,9 +76,9 @@ popd
 %files -n %{pypi_name}
 %_bindir/cairosvg
 
-%if %python3
-%files -n python3-%{pypi_name}
-%{python3_sitelib}/%{pypi_name}*
-%{python3_sitelib}/%{pypi_oname}-%version-py%{py3_ver}.egg-info
+%if %python2
+%files -n python2-%{pypi_name}
+%{python2_sitelib}/%{pypi_name}*
+%{python2_sitelib}/%{pypi_oname}-%version-py%{py2_ver}.egg-info
 %endif
 
