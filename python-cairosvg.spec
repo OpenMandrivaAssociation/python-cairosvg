@@ -13,7 +13,7 @@ Source0:        http://pypi.python.org/packages/source/c/%{pypi_oname}/%{pypi_on
 BuildArch:      noarch
 BuildRequires:  pkgconfig(python)
 BuildRequires:  python-setuptools
-BuildRequires:  python-pytest_runner
+BuildRequires:  python-pytest-runner
 Requires:       %{pypi_name}
 
 %rename python3-%{pypi_name}
