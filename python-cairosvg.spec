@@ -11,10 +11,9 @@ License:        MIT
 URL:            http://pypi.python.org/pypi/%{pypi_name}
 Source0:        http://pypi.python.org/packages/source/c/%{pypi_oname}/%{pypi_oname}-%{version}.tar.gz
 BuildArch:      noarch
-BuildRequires:  pkgconfig(python)
+BuildRequires:  pkgconfig(python3)
 BuildRequires:  python-setuptools
 BuildRequires:  python-pytest-runner
-#Requires:       %{pypi_name}
 Requires:       python-cairoccfi
 Requires:       python-cssselect2
 Requires:       python-tinycss2
@@ -25,18 +24,8 @@ Requires:       python-defusedxml
 %description
 A Simple SVG Converter for Cairo
 
-%package -n %{pypi_name}
-Summary:        A Simple SVG Converter for Cairo
-Group:          Development/Python
-
-%description -n %{pypi_name}
-A Simple SVG Converter for Cairo
-
 %prep
-%setup -q -n %{pypi_oname}-%{version}
-
-%apply_patches
-
+%autosetup -p1 -n %{pypi_oname}-%{version}
 
 %build
 %{__python} setup.py build
@@ -47,10 +36,6 @@ A Simple SVG Converter for Cairo
 %{__python} setup.py install -O1 --skip-build --root %{buildroot}
 
 %files
+%_bindir/cairosvg
 %{python_sitelib}/%{pypi_name}*
 %{python_sitelib}/%{pypi_oname}-%version-py%{py_ver}.egg-info
-
-%files -n %{pypi_name}
-%_bindir/cairosvg
-
-
