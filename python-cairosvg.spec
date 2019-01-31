@@ -18,6 +18,7 @@ Requires:       %{pypi_name}
 Requires:       python-cairoccfi
 Requires:       python-cssselect2
 Requires:       python-tinycss2
+Requires:       python-defusedxml
 
 %rename python3-%{pypi_name}
 
