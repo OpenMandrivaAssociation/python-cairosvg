@@ -14,7 +14,7 @@ BuildArch:      noarch
 BuildRequires:  pkgconfig(python3)
 BuildRequires:  python-setuptools
 BuildRequires:  python-pytest-runner
-Requires:       python-cairoccfi
+Requires:       python-cairocffi
 Requires:       python-cssselect2
 Requires:       python-tinycss2
 Requires:       python-defusedxml
