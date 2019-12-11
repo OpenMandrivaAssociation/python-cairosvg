@@ -4,7 +4,7 @@
 
 Name:           python-%{pypi_name}
 Version:	2.4.2
-Release:	1
+Release:	2
 Group:          Development/Python
 Summary:        A Simple SVG Converter for Cairo
 License:        MIT
