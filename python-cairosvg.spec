@@ -3,13 +3,13 @@
 
 
 Name:           python-%{pypi_name}
-Version:	2.4.2
-Release:	3
+Version:	2.5.0
+Release:	1
 Group:          Development/Python
 Summary:        A Simple SVG Converter for Cairo
 License:        MIT
 URL:            http://pypi.python.org/pypi/%{pypi_name}
-Source0:	https://files.pythonhosted.org/packages/ba/46/24514db9c111f4d0b18bc050ff7204065ae9c89db6badcf283661528b329/CairoSVG-2.4.2.tar.gz
+Source0:	https://files.pythonhosted.org/packages/26/f5/d8fb11ac3ac613cae21f6860d9bebc12792240f7d22e62f84354dc365e7e/CairoSVG-2.5.0.tar.gz
 BuildArch:      noarch
 BuildRequires:  pkgconfig(python3)
 BuildRequires:  python-setuptools
