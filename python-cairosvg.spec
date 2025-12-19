@@ -1,41 +1,36 @@
-%global pypi_name cairosvg
-%global pypi_oname CairoSVG
+%global module cairosvg
+%global oname CairoSVG
 
+Name:		python-cairosvg
+Version:	2.8.2
+Release:	1
+Group:		Development/Python
+Summary:	A Simple SVG Converter for Cairo
+License:	MIT
+URL:		https://pypi.python.org/pypi/cairosvg
+Source0:	https://files.pythonhosted.org/packages/source/c/%{module}/%{module}-%{version}.tar.gz
+BuildSystem:	python
+BuildArch:		noarch
 
-Name:           python-%{pypi_name}
-Version:	2.5.2
-Release:	3
-Group:          Development/Python
-Summary:        A Simple SVG Converter for Cairo
-License:        MIT
-URL:            https://pypi.python.org/pypi/%{pypi_name}
-Source0:	https://files.pythonhosted.org/packages/0e/8a/618700c8d6a1dbef8bbe6da97d57c47363aa14b486140a4df9f75f31ba4f/CairoSVG-2.5.2.tar.gz
-BuildArch:      noarch
-BuildRequires:  pkgconfig(python3)
-BuildRequires:  python-setuptools
-BuildRequires:  python-pytest-runner
-Requires:       python-cairocffi
-Requires:       python-cssselect2
-Requires:       python-tinycss2
-Requires:       python-defusedxml
+BuildRequires:	pkgconfig(python)
+BuildRequires:	python%{pyver}dist(cairocffi)
+BuildRequires:	python%{pyver}dist(cssselect2)
+BuildRequires:	python%{pyver}dist(defusedxml)
+BuildRequires:	python%{pyver}dist(pillow)
+BuildRequires:	python%{pyver}dist(pip)
+BuildRequires:	python%{pyver}dist(setuptools)
+BuildRequires:	python%{pyver}dist(tinycss2)
 
-%rename python3-%{pypi_name}
+%rename python3-%{module}
 
 %description
 A Simple SVG Converter for Cairo
 
 %prep
-%autosetup -p1 -n %{pypi_oname}-%{version}
-
-%build
-%{__python} setup.py build
-
-
-%install
-
-%{__python} setup.py install -O1 --skip-build --root %{buildroot}
+%autosetup -n %{module}-%{version} -p1
+rm -rf %{oname}.egg-info
 
 %files
 %_bindir/cairosvg
-%{python_sitelib}/%{pypi_name}*
-%{python_sitelib}/%{pypi_oname}-%version-py%{py_ver}.egg-info
+%{python_sitelib}/%{module}*
+%{python_sitelib}/%{oname}-%version-py%{py_ver}.egg-info
