@@ -3,7 +3,7 @@
 
 Name:		python-cairosvg
 Version:	2.8.2
-Release:	1
+Release:	2
 Group:		Development/Python
 Summary:	A Simple SVG Converter for Cairo
 License:	MIT
